@@ -11,8 +11,10 @@ public class EjemploSet {
     private final static int MAX = 5;
 
     private Set<Integer> conjunto;
+    private SetType tipo;
 
     public EjemploSet(SetType tipo){
+        this.tipo = tipo;
 
         if(tipo == SetType.HASH)
             conjunto = new HashSet<Integer>();
@@ -33,5 +35,21 @@ public class EjemploSet {
             conjunto.add(i);
         }
 
+    }
+
+    @Override
+    public String toString(){
+        String cadena  ="Se está procesando un Conjunto modo: "+ this.tipo + "\n\t";
+
+        cadena+= "datos cargados desde " + MAX + " hasta "+ MIN+"\n\n\t";
+
+        cadena+= "Datos que se han cargado: ";
+
+        for (Integer integer : conjunto) {
+            cadena += integer + ", ";
+        }
+
+
+        return cadena;
     }
 }
